@@ -78,12 +78,66 @@ The application will be available at [http://localhost:3000](http://localhost:30
   - Role-based access control
   - User profile management
 
+## Technical Documentation
+
+### Architecture
+
+- **Frontend Architecture**
+  - Next.js 13+ with App Router for server-side rendering and routing
+  - React Server Components for optimal performance
+  - Client-side components for interactive features
+
+- **State Management**
+  - React Context API for global state (AuthContext)
+  - Server-side state management with Next.js Cache
+  - Client-side state with React hooks
+
+### API Specifications
+
+- **RESTful Endpoints**
+  - `/api/documents`: Document management operations
+  - `/api/qa`: Q&A interface endpoints
+  - `/api/auth`: Authentication endpoints
+
+- **Authentication Flow**
+  - JWT-based authentication
+  - Secure session management
+  - Role-based access control (RBAC)
+
+### Data Flow
+
+1. **Document Processing**
+   - Upload → Processing → Storage → Indexing
+   - Version control system for document changes
+   - Real-time updates using WebSocket
+
+2. **Q&A System**
+   - Question input → Document analysis → AI processing → Response
+   - Caching layer for frequent queries
+   - Async processing for long-running operations
+
+### Performance Optimization
+
+- Image optimization with Next.js Image component
+- Code splitting and lazy loading
+- Static page generation where applicable
+- API route caching strategies
+
 ## Testing
 
 The application includes both unit tests and end-to-end tests:
 
-- Unit tests are written using Jest and React Testing Library
-- E2E tests are implemented using Playwright
+- **Unit Tests (Jest + React Testing Library)**
+  - Component testing
+  - Service layer testing
+  - Context testing
+  - Mock service implementations
+
+- **E2E Tests (Playwright)**
+  - User flow testing
+  - Authentication scenarios
+  - Document management workflows
+  - Q&A interface interactions
 
 ## Deployment
 
@@ -98,23 +152,3 @@ npm run build
 ```bash
 npm start
 ```
-
-### Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
-
-1. Push your code to a Git repository
-2. Import your repository to Vercel
-3. Vercel will automatically detect Next.js and configure the build settings
-4. Deploy and get your application URL
-
-For more details, check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying).
-
-## Learn More
-
-- [Next.js Documentation](https://nextjs.org/docs) - Learn about Next.js features and API
-- [Learn Next.js](https://nextjs.org/learn) - Interactive Next.js tutorial
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
